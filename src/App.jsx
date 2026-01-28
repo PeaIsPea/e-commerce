@@ -1,13 +1,14 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import Hello from '@components/Hello/Hello';
+import Button from '@components/Button/Button';
 
 function App() {
-
-
   return (
-    <div>
-      Lô
-    </div>
+  <div>
+    <Hello />
+    <Button />
+  </div>
   )
 }
 
-export default App
+export default App;
