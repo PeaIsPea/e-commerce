@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import Hello from '@components/Hello/Hello';
-import Button from '@components/Button/Button';
+import HomePage from '@components/HomePage/HomePage';
 
 function App() {
   return (
-  <div>
-    <Hello />
-    <Button />
-  </div>
+  <>
+    
+    <HomePage />
+  
+    
+  </>
   )
 }
 
