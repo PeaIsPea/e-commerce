@@ -33,7 +33,7 @@ function MyHeader() {
           
         </div>
         <div>
-          <img src={Logo} alt="logo" style={{ width:"153px", height: "75px"}}/>
+          {/* <img src={Logo} alt="logo" style={{ width:"153px", height: "75px"}}/> */}
         </div>
         <div className={containerBox}>
           <div className={containerMenu}>

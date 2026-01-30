@@ -4,6 +4,10 @@
 
 .container {
   @include mix.flex_box_custom(center, center, 0px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   // background-color: bisque;
 }
 
@@ -13,11 +17,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 83px;
+  height: 84px;
 }
 
 .containerBoxIcon {
-  @include mix.flex_box_custom(center, center, 10px);
+  @include mix.flex_box_custom(center, center, 8px);
   cursor: pointer;
 }
 
@@ -26,7 +30,7 @@
 }
 
 .containerMenu {
-  @include mix.flex_box_custom(center, center, 40px)
+  @include mix.flex_box_custom(center, center, 30px)
 }
 
 .boxIcon {
