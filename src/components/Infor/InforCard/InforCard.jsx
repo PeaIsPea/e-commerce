@@ -1,5 +1,4 @@
 import styles from '../styles.module.scss'
-import CarIcon from '@icons/svgs/shipicon.svg';
 
 function InforCard({ title, des , src }) {
 

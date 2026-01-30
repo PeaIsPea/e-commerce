@@ -9,9 +9,9 @@ function Infor() {
     <div>
       <MainLayout>
         <div className={container}>
-          {dataInfor.map((item) => {
+          {dataInfor.map((item, index) => {
             return (
-              <InforCard title={item.title} des={item.des} src={item.src}/>
+              <InforCard key={index} title={item.title} des={item.des} src={item.src}/>
             )
           })}
         </div>

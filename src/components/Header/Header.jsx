@@ -18,15 +18,15 @@ function MyHeader() {
         <div className={containerBox}>
           <div className={containerBoxIcon}>
             {
-              dataBoxIcon.map( (icon) => {
-                return <BoxIcon type={icon.type} href={icon.href}/>
+              dataBoxIcon.map( (icon, index) => {
+                return <BoxIcon key={index} type={icon.type} href={icon.href}/>
               })
             }
           </div>
           <div className={containerMenu}>
             {
-              dataMenu.slice(0, 3).map( (data) => {
-                return <Menu content={data.content} href={data.href}/>
+              dataMenu.slice(0, 3).map( (data, index) => {
+                return <Menu key={index} content={data.content} href={data.href}/>
               })
             }
           </div>
@@ -38,8 +38,8 @@ function MyHeader() {
         <div className={containerBox}>
           <div className={containerMenu}>
             {
-              dataMenu.slice(3, dataMenu.length).map( (data) => {
-                return <Menu content={data.content} href={data.href}/>
+              dataMenu.slice(3, dataMenu.length).map( (data, index) => {
+                return <Menu key={index} content={data.content} href={data.href}/>
               })
             }
           </div>
