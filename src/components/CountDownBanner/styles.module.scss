@@ -1,0 +1,29 @@
+@use '@styles/mixins.module.scss' as mix;
+@use '@styles/variables.module' as *;
+
+
+.container {
+  background-image: url('https://stargatetls.net/wp-content/uploads/2025/06/8xbet-logo.jpg');
+  height: 409px;
+  width: calc(100% / 2);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.containerTimer {
+  @include mix.flex_box_custom(center, center, 10px);
+
+  margin-top: 150px;
+}
+
+.title {
+  color: $four_color;
+  font-size: 28px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.boxBtn {
+  margin-top: 20px;
+  text-align: center;
+}

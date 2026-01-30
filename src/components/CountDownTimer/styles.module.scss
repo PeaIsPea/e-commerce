@@ -1,0 +1,17 @@
+@use '@styles/mixins.module.scss' as mix;
+@use '@styles/variables.module' as *;
+
+
+.box {
+  background-color: white;
+  padding: 10px;
+  border-radius: 4px;
+  margin-right: 8px;
+  margin-top: 100px;
+  
+}
+
+.dates {
+  font-size: 18px;
+  color: $secondary;
+}
