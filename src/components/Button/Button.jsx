@@ -1,11 +1,20 @@
-import styles from './styles.module.scss'
+import styles from './styles.module.scss';
+import classNames from 'classnames';
 
+function MyButton({ content, variant = 'btn' }) {
+  const { btn, btn2, btn3 } = styles;
 
-function MyButton({content}) {
-  const {btn} = styles
-  return ( 
-    <button className={btn}>{content}</button>
-   );
+  return (
+    <button
+      className={classNames({
+        [btn]: variant === 'btn',
+        [btn2]: variant === 'btn2',
+        [btn3]: variant === 'btn3',
+      })}
+    >
+      {content}
+    </button>
+  );
 }
 
 export default MyButton;
