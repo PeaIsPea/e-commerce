@@ -3,17 +3,42 @@ import { dataBoxIcon, dataMenu } from './const'
 import Menu from "./Menu/Menu";
 import styles from './styles.module.scss'
 import Logo from '../../assets/Logo/LOGO.png'
-import reLoadIcon from '@icons/svgs/rotate.svg'
-import cartIcon from '@icons/svgs/cart.svg'
-import heartIcon from '@icons/svgs/heart.svg'
+import useScollHandling from "@/hooks/useScollHandling";
+import { useContext, useEffect, useState } from "react";
+import classNames from "classnames";
+import { SideBarContext } from "@/contexts/SideBarProvider";
+import { GoGitCompare } from "react-icons/go";
+import { IoMdHeartEmpty } from "react-icons/io";
+import { IoCartOutline } from "react-icons/io5";
 
 function MyHeader() {
 
-  const {container, containerHeader, containerBoxIcon, containerMenu, containerBox} = styles
+  const {container, containerHeader, containerBoxIcon, containerMenu, containerBox, fixedHeader, topHeader} = styles
+
+  const { scollPos } = useScollHandling()
+  const [fixedPos, setFixedPos] = useState(false)
+  const {setIsOpen, setType} = useContext(SideBarContext)
+
+
+  const handleIsOpenSideBar = (type) => {
+    setIsOpen(true)
+    setType(type)
+  }
+
+ 
+
+  
+  useEffect(() => {
+
+     setFixedPos(scollPos > 80)
+
+  }, [scollPos])
 
 
   return (
-    <div className={container}>
+    <div className={classNames(container, topHeader, {
+      [fixedHeader] : fixedPos
+    })}>
       <div className={containerHeader}>
         <div className={containerBox}>
           <div className={containerBoxIcon}>
@@ -39,16 +64,31 @@ function MyHeader() {
           <div className={containerMenu}>
             {
               dataMenu.slice(3, dataMenu.length).map( (data, index) => {
-                return <Menu key={index} content={data.content} href={data.href}/>
+                return <Menu key={index} content={data.content} href={data.href} setIsOpen={setIsOpen}/>
               })
             }
           </div>
           <div className={containerBoxIcon}>
-            <img width={26} height={26} src={reLoadIcon} alt="reload" />
-            
-            <img width={26} height={26} src={heartIcon} alt="heart" />
+            <GoGitCompare style={{
+              fontSize: '25px'
+              }}
+              onClick={() => handleIsOpenSideBar('compare')}
+            />
+            <IoMdHeartEmpty style={{
+              fontSize: '25px'
+              }}
+              onClick={() => handleIsOpenSideBar('wishlist')}
+            />
 
-            <img width={26} height={26} src={cartIcon} alt="carts" />
+            <IoCartOutline style={{
+              fontSize: '25px'
+              }}
+              onClick={() => handleIsOpenSideBar('cart')}
+            />
+
+            
+            
+            
           </div>
         </div>
       </div>

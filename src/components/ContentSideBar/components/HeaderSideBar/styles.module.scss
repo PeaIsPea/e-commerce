@@ -1,0 +1,11 @@
+@use '@styles/mixins.module.scss' as mix;
+@use '@styles/variables.module.scss' as *;
+
+
+
+
+.container {
+  @include mix.flex_box_custom(center, center, 10px);
+  padding-bottom: 30px;
+  border-bottom: 1px solid #333;
+}

@@ -1,0 +1,60 @@
+@use '@styles/mixins.module.scss' as mix;
+@use '@styles/variables.module.scss' as *;
+
+
+.containerSideBar {
+  position: relative;
+
+  .overplay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0000004d;
+    z-index: 1000;
+
+    transition: all 0.3s ease;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 320px;
+    height: 100vh;
+    background-color: white;
+    z-index: 1001;
+
+    transform: translateX(320px); 
+    transition: all 0.3s ease;
+
+  }
+  .slideSideBar { 
+      transform: translateX(0);
+  }
+
+  .boxIcon {
+    @include mix.flex_box_custom(center, center, 0px);
+
+    position: absolute;
+    top: 25px;
+    left: -60px;
+
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background-color: #ccc;
+    }
+  }
+
+  
+}
+
+
