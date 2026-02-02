@@ -1,0 +1,16 @@
+@use '@styles/mixins.module.scss' as mix;
+@use '@styles/variables.module.scss' as *;
+
+
+.container {
+  @include mix.flex_box_custom(space-between, space-between, 0px);
+
+  padding: 30px 5px 0 5px;
+  height: 95%;
+  flex-direction: column;
+
+  .boxBtn{
+    @include mix.flex_box_custom(space-between, space-between, 10px);
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,40 @@
+@use '@styles/mixins.module.scss' as mix;
+@use '@styles/variables.module.scss' as *;
+
+.container {
+
+  margin-bottom: 20px;
+  
+
+  .labelInput {
+    font-size: 14px;
+    color: $four_color;
+    margin-bottom: 5px;
+  }
+  .boxInput {
+    position: relative;
+    width: 100%;
+    input {
+      
+      width: 100%;
+      border: 1px solid #e1e1e1;
+      outline: none;
+      padding: 10px 0px 10px 10px;
+
+      
+    }
+    .iconEye {
+        position: absolute;
+        top: 12px;
+        cursor: pointer;
+        
+        right: 0;
+    }
+
+    .errorMess {
+      font-size: 12px;
+      color: red;
+    }
+  }
+}
+

@@ -10,9 +10,9 @@ function CountDownBanner() {
         <CountDownTimer targetTime={targetTime}/>
         
       </div>
-      <p className={title}>The classics make a comeback</p>
+      <p className={title} style={{color: "black"}}>The classics make a comeback</p>
       <div className={boxBtn}>
-        <MyButton variant="btn2" content={"Buy now"}/>
+        <MyButton variant="btn4" content={"Buy now"}/>
       </div>
     </div> 
   );

@@ -1,0 +1,27 @@
+@use '@styles/mixins.module.scss' as mix;
+@use '@styles/variables.module.scss' as *;
+
+
+.container {
+  @include mix.flex_box_custom(space-between, space-between, 0px);
+
+  flex-direction: column;
+  padding: 30px 5px 0 5px;
+  height: 95%;
+
+  .boxTotal {
+    @include mix.flex_box_custom(space-between, center, 0px);
+    
+    border-bottom: 1px solid #333;
+    border-top: 1px solid #333;
+    margin-bottom: 30px
+    
+  }
+
+  .boxBtn {
+    @include mix.flex_box_custom(center, center, 0px);
+    flex-direction: column;
+  }
+
+  
+}
