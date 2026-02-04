@@ -8,11 +8,11 @@ aiming to simulate the basic functionalities of an e-commerce website.
 
 ## 🚀 Demo
 
-![Alt text](/ecomerse/demo/1.png "1")
+![Alt text](./demo/1.png "1")
 
-![Alt text](/ecomerse/demo/2.png "2")
+![Alt text](./demo/2.png "2")
 
-![Alt text](/ecomerse/demo/3.png "3")
+![Alt text](./demo/3.png "3")
 
 ------------------------------------------------------------------------
 
