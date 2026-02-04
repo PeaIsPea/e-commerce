@@ -3,8 +3,11 @@ import styles from './styles.module.scss'
 import MyButton from "@components/Button/Button";
 import { useFormik } from "formik";
 import * as Yup from 'yup'
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ToastContext } from "@/contexts/ToastProvider";
+import { register } from "@/apis/authService";
+import { signIn, getInfor } from "@/apis/authService";
+import Cookies from "js-cookie";
 
 function Login() {
 
@@ -14,6 +17,8 @@ function Login() {
   const [isRes, setIsRes] = useState(false)
 
   const {toast} = useContext(ToastContext)
+
+  const [isLoading, setIsLoading] = useState(false)
 
 
   const formik = useFormik({
@@ -27,8 +32,38 @@ function Login() {
       cfmpassword: Yup.string().oneOf(
         [Yup.ref('password'), null], 'Passwords are not match')
     }),
-    onSubmit: (values) => {
-      console.log(values)
+
+    onSubmit: async (values) => {
+      if(isLoading) return
+      const {email: username, password} = values
+      setIsLoading(true)
+      if(isRes) {
+        const {email: username, password} = values
+        
+        await register({
+          username,
+          password
+        }).then((res) => {
+          toast.success(res.data.message)
+          setIsLoading(false)
+        }).catch(err => {          
+          toast.error(err.response.data.message)
+          setIsLoading(false)
+        })
+      }
+
+      if(!isRes) {
+        await signIn({username, password}).then((res) => {
+          setIsLoading(false)
+
+          const {id, token, refreshToken} = res.data
+
+          Cookies.set('token', token)
+          Cookies.set('refreshToken', refreshToken)
+        }).catch(err => {
+          setIsLoading(false)
+        })
+      }
     }
 
   })
@@ -38,6 +73,9 @@ function Login() {
     formik.resetForm()
   }
 
+  useEffect(() =>{
+    getInfor()
+  },[])
 
 
   return ( 
@@ -86,9 +124,11 @@ function Login() {
         )}
 
         <div className={title}>
-          <MyButton variant="btn" content={ isRes ? "REGISTER":"LOGIN"} 
+          <MyButton
+            
+           variant="btn" content={ isLoading? 'LOADING...' : isRes ? "REGISTER":"LOGIN"} 
           type='submit'
-          onClick={() => toast.success('Success')}
+          
           
           />
         </div>
