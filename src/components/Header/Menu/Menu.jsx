@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import styles from '../styles.module.scss'
-import { SideBarContext } from '@/contexts/SidebarProvider';
+import { SideBarContext } from '@/contexts/SideBarProvider';
 
 function Menu({ content, href}) {
 
